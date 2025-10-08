@@ -2,240 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Easy Invoice</title>
-    <style>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
       body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
+        height: 100%;
       }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        min-height: 100vh;
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
         display: flex;
-        flex-direction: column;
-      }
-      .header {
-        text-align: center;
-        color: white;
-        margin-bottom: 40px;
-      }
-      .header h1 {
-        font-size: 3rem;
-        margin: 0;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      }
-      .header p {
-        font-size: 1.2rem;
-        margin: 10px 0;
-        opacity: 0.9;
-      }
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-      }
-      .feature-card {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        text-align: center;
-        transition: transform 0.3s ease;
-      }
-      .feature-card:hover {
-        transform: translateY(-5px);
-      }
-      .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 20px;
-      }
-      .feature-card h3 {
-        color: #333;
-        margin-bottom: 15px;
-        font-size: 1.5rem;
-      }
-      .feature-card p {
-        color: #666;
-        line-height: 1.6;
-      }
-      .cta-section {
-        background: white;
-        border-radius: 15px;
-        padding: 40px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        margin-top: auto;
-      }
-      .cta-button {
-        display: inline-block;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 15px 40px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-        transition: transform 0.3s ease;
-        margin: 10px;
-      }
-      .cta-button:hover {
-        transform: scale(1.05);
-      }
-      .footer {
-        text-align: center;
-        color: white;
-        margin-top: 40px;
-        opacity: 0.8;
+        height: 100%;
+        flex: 1;
       }
     </style>
-  </head>
+  <meta name="theme-color" content="#667eea">
+<meta name="description" content="Create and manage invoices easily">
+</head>
 
   <body>
-    <div class="container">
-      <div class="header">
-        <h1>📄 Easy Invoice</h1>
-        <p>Create professional invoices in minutes</p>
-      </div>
-      
-      <div class="features">
-        <div class="feature-card">
-          <div class="feature-icon">💼</div>
-          <h3>Professional Templates</h3>
-          <p>Choose from beautiful, professional invoice templates that make your business look great.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Quick & Easy</h3>
-          <p>Create invoices in minutes with our intuitive interface. No complicated setup required.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">💾</div>
-          <h3>Save & Organize</h3>
-          <p>Keep track of all your invoices and customers in one place. Export to PDF anytime.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🌍</div>
-          <h3>Multi-Currency</h3>
-          <p>Support for multiple currencies with automatic conversion and formatting.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Works Everywhere</h3>
-          <p>Access your invoices from any device - desktop, tablet, or mobile.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Secure & Private</h3>
-          <p>Your data stays on your device. No cloud storage, complete privacy guaranteed.</p>
-        </div>
-      </div>
-      
-      <div class="cta-section">
-        <h2>Ready to get started?</h2>
-        <p>Join thousands of business owners who trust Easy Invoice for their billing needs.</p>
-        <a href="#" class="cta-button" onclick="startApp()">Create Your First Invoice</a>
-        <a href="#" class="cta-button" onclick="showDemo()">View Demo</a>
-      </div>
-      
-      <div class="footer">
-        <p>&copy; 2024 Easy Invoice. Simple invoicing for everyone.</p>
-      </div>
-    </div>
-
-    <script>
-      function startApp() {
-        // Create a simple invoice form
-        document.body.innerHTML = `
-          <div style="max-width: 800px; margin: 0 auto; padding: 20px; background: white; min-height: 100vh;">
-            <h1 style="color: #667eea; text-align: center; margin-bottom: 30px;">🧾 Create Invoice</h1>
-            
-            <form style="background: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-              <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 15px;">📋 Business Information</h3>
-                <input type="text" placeholder="Your Business Name" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                <input type="email" placeholder="Your Email" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                <textarea placeholder="Your Address" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; height: 80px; resize: vertical;"></textarea>
-              </div>
-              
-              <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 15px;">👤 Customer Information</h3>
-                <input type="text" placeholder="Customer Name" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                <input type="email" placeholder="Customer Email" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                <textarea placeholder="Customer Address" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; height: 80px; resize: vertical;"></textarea>
-              </div>
-              
-              <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 15px;">📄 Invoice Details</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
-                  <input type="text" placeholder="Invoice #001" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                  <input type="date" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                </div>
-                <input type="date" placeholder="Due Date" style="width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-              </div>
-              
-              <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 15px;">🛍️ Items & Services</h3>
-                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; font-weight: bold; color: #666;">
-                  <div>Description</div>
-                  <div>Qty</div>
-                  <div>Rate</div>
-                  <div>Amount</div>
-                </div>
-                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px;">
-                  <input type="text" placeholder="Service description" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                  <input type="number" placeholder="1" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                  <input type="number" placeholder="100.00" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
-                  <div style="padding: 12px; background: #e9ecef; border: 1px solid #ddd; border-radius: 5px; text-align: right; font-weight: bold;">$100.00</div>
-                </div>
-              </div>
-              
-              <div style="margin-bottom: 20px;">
-                <h3 style="color: #333; margin-bottom: 15px;">💰 Total</h3>
-                <div style="text-align: right; background: white; padding: 20px; border-radius: 5px; border: 2px solid #667eea;">
-                  <div style="font-size: 24px; font-weight: bold; color: #667eea;">$100.00</div>
-                </div>
-              </div>
-              
-              <div style="margin-bottom: 30px;">
-                <h3 style="color: #333; margin-bottom: 15px;">📝 Notes</h3>
-                <textarea placeholder="Thank you for your business!" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; height: 80px; resize: vertical;"></textarea>
-              </div>
-              
-              <div style="text-align: center;">
-                <button type="button" onclick="generateInvoice()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border: none; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
-                  📄 Generate Invoice
-                </button>
-                <button type="button" onclick="location.reload()" style="background: #6c757d; color: white; padding: 15px 40px; border: none; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; margin: 10px;">
-                  🔄 Back to Home
-                </button>
-              </div>
-            </form>
-          </div>
-        `;
-      }
-      
-      function showDemo() {
-        alert('Demo: This would show a sample invoice with pre-filled data. The full app includes PDF export, customer management, multi-currency support, and invoice tracking.');
-      }
-      
-      function generateInvoice() {
-        alert('🎉 Invoice Generated! In the full version, this would create a professional PDF invoice and save it to your invoice list.');
-      }
-    </script>
-  </body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/_expo/static/js/web/AppEntry-3e4ee2f90c3f949f34d5c7cc2803cac8.js" defer></script>
+</body>
 </html>
